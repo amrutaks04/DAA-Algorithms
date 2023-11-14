@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int arr[] = {56,57,58,59,60};
+  int low = 0, high = sizeof(arr) / sizeof(arr[0]) - 1, key = 50, mid, flag = 0;
+
+  while (low <= high) {
+    mid = (low + high) / 2;
+
+    if (arr[mid] == key) {
+      flag = 1;
+      break;
+    } else if (arr[mid] > key) {
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+
+  if (flag == 1) {
+    cout << "found";
+  } else {
+    cout << "not found";
+  }
+
+  return 0;
+}
